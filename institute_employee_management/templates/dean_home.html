@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+        <style> body {background-color:lightcyan;} 
+                  
+                  ul    {
+  			                 font-family: courier;
+  			                  font-size: 120%;
+                           margin-left: 45px;
+                        } 
+                   p {
+                       color:orangered;
+                        font-family:sans-serif;
+                        font-size: 110%;
+                        margin-left: 30px;
+                     }
+                   h1 {border: 2px solid red;}
+
+                 p2{
+                  position: absolute;
+                  right: 300px;
+                  top: 200px;
+                 }
+                 
+        </style>
+
+
+      <title>welcome</title>
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   </head>
+
+   <body>
+      <h1 style="color:blue;"> Dean Faculty Affairs portal</h1>
+      <h3 style="color:green "> <em><small> <b> {{message1}}  </b>  <u> {{message2}} </u></small></em> </h3>
+      
+       <!--    <p></br></br>
+           {{available_leaves}} leaves remaining this year. </br></br>
+           You have borrowed {{borrowed}} leaves from next year</br>
+
+        </p>     -->
+        <p2> 
+            <a href="/inbox/{{user}}"class="button"style="color:orangered;font-size:14px;"><i class="fas fa-envelope" style="color:darkorange;font-size:44px;"></i>
+               inbox </a>
+          
+       </p2>
+       <!-- ADD LINK FOR MSGS LATER -->
+      <ul style="list-style-type:circle;">
+         </br> </br>
+       
+         </br>
+        <li> <a href="/crossdesk/{{user}}">Incoming Leave Applications</a></li>
+      </br>
+      <li> <a href="/crossform/{{user}}">Apply for leave</a> </li><br/>
+       </br>
+      </ul>
+     
+
+   </body>
+</html>

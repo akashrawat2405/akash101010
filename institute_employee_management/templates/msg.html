@@ -1,0 +1,41 @@
+<html>
+<head>
+  <style>
+  header {border: 2px solid red;
+          padding-top: 5px;
+          font-family: Calibri; font-size: 25pt;
+          background-color:lightsteelblue;
+          color:maroon;
+          }
+
+  </style>
+</head>
+
+<body>
+<center>
+<header ><u>Messages</u></header><br>
+
+<div class="output">
+<table style="width:100%;border-bottom: 1px solid red;" >
+<tr  style="color:midnightblue;background-color: lightgrey;">
+   <td>Application_number</td>
+   <td>Action By:</td>
+   <td>Messages</td>
+ 
+</tr>
+
+{% for item in data %}
+<tr style="color:darkred;">
+    <td>{{item[0]}}</td>
+    <td>{{item[1]}}</td>
+    <td>{{item[2]}}</td>
+  
+</tr>
+{% endfor %}
+
+
+</table>
+</center>
+
+</body>
+</html>

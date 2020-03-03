@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body{
+          background-color:rgb(221, 138, 138);
+
+         }
+</style>
+
+</head>  
+
+<body>
+    <h3>{{msg}}</h3>
+    <form action="/pb_portal/{{user}}" method="POST">
+        <h3>Change info</h3>
+        <textarea name = "personal_info" cols = "130" rows = "8" STYLE ="background-color:rgb(245, 229, 231)">{{ data_to_edit1 }}</textarea>
+        <h3>Change data</h3>
+    
+    <textarea name = "data" cols = "130" rows = "8"STYLE ="background-color:rgb(245, 229, 231)">{{ data_to_edit2 }}</textarea>
+    <h3>Change Achievements</h3>
+    <textarea name = "achievements" cols = "130" rows = "8" STYLE ="background-color:rgb(245, 229, 231)">{{ data_to_edit3 }}</textarea>
+        <input type="submit" style="color:darkred" name="setInfo3" value="Set" method = "POST">    
+    </form>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<html>
+<head>
+  <style>
+  header {border: 2px solid red;
+          padding-top: 5px;
+          font-family: Calibri; font-size: 25pt;
+          background-color:lightsteelblue;
+          color:maroon;
+          }
+   
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  color: darkblue;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text] {
+  width : 100%;
+  padding : 15px;
+  margin : 5px 0 22px 0;
+  border : none;
+  background : lightgrey;
+}
+
+  </style>
+</head>
+
+<body>
+<center>
+<header ><u>Applications</u></header><br>
+
+<div class="output">
+<table style="width:90%;border-bottom: 1px solid red;" >
+<tr  style="color:midnightblue;background-color: lightgrey;">
+   <td>Application_number</td>
+   <td>faculty_id</td>
+   <td>starting_date</td>
+   <td>for_days</td>
+   <td>type_</td>
+   <td>application_status</td>
+   
+        
+</tr>
+{% for item in data %}
+<tr style="color:darkred;">
+    <td>{{item[0]}}</td>
+    <td>{{item[1]}}</td>
+    <td>{{item[2]}}</td>
+    <td>{{item[3]}}</td>
+    <td>{{item[4]}}</td>
+    <td>{{item[5]}}</td>
+  
+</tr>
+{% endfor %}
+
+
+<div>
+    <button class="open-button" onclick="openForm()">Respond</button>
+    <div class="form-popup" id="myForm">
+      <form action="/director_response" method="post" class="form-container">
+        <h2>Respond :</h2>
+    <div>
+        <label for="application_no"><b>Application No:</b></label>
+        <input type="text" name="application_no" required>
+        <div>
+         
+            <label for="response">Type</label>
+            <select id="response" name="response">
+            <option value="Approved">Approve</option>
+            <option value="Rejected">Reject</option>
+            </select>
+        
+          <div>
+            <label for="comment">	  Comment</label>
+            <input type="text" id="comment" name="comment" >
+          </div>
+      </div>
+    
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+    
+    <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+    
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    </script>
+    
+  </div>
+
+</body>
+</html>

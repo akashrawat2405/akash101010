@@ -1,0 +1,31 @@
+<html>
+
+  <body >
+      <center>
+      </br> </br>
+      <h1 style="color:blue; border: 2px solid red;">Please login</h1>
+      </br> </br> </br>
+      <form action="/login" method="post">
+       
+         <select name="choice">
+       <option value="1">Faculty</option>
+       <option value="2">HOD</option>
+       <option value="3">Cross</option>
+       <option value = "4">Admin</option>
+       </select>
+      </br></br>
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+        </br> </br>
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        </br> </br>
+        <input class="btn btn-default" type="submit" value="Login">
+        
+      {% if error %}
+      </br> </br> </br> </br>
+        <p class="error" style="color:rgb(235, 55, 10) ;font-style: italic;"><strong>Error :   </strong> {{ error }}
+      {% endif %}
+    </center>
+  </body>
+</html>

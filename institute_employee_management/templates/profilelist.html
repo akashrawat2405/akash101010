@@ -1,0 +1,102 @@
+<html>
+<head>
+  <style>
+  header {border: 2px solid red;
+          padding-top: 5px;
+          font-family: Calibri; font-size: 25pt;
+          background-color:lightsteelblue;
+          color:maroon;
+          }
+   
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  color: darkblue;
+  padding: 16px 20px;
+  border: none;
+  background-color: burlywood;
+  cursor: pointer;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  border: 1px solid blue;
+  background-color: sandybrown;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 400px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text] {
+  width : 100%;
+  padding : 15px;
+  margin : 5px 0 22px 0;
+  border : none;
+  background : lightgrey;
+}
+
+  </style>
+</head>
+
+<body>
+<center>
+<header ><u>Faculty List</u></header><br>
+
+<div class="output">
+<table style="width:90%;border-bottom: 1px solid red;" >
+<tr  style="color:midnightblue;background-color: lightgrey;">
+   
+   <td>faculty_id</td>
+   <td>Name</td>
+   <td>Department</td>     
+</tr>
+{% for item in data %}
+<tr style="color:darkred;">
+    <td>{{item[0]}}</td>
+    <td>{{item[1]}}</td>
+    <td>{{item[2]}}</td>
+</tr>
+{% endfor %}
+
+<div>
+    <button class="open-button" onclick="openForm()">Check Profile</button>
+    <div class="form-popup" id="myForm">
+      <form action="/view_profile" method="post" class="form-container">
+        <h2>Select :</h2>
+    <div>
+        <label for="faculty_id"><b>Faculty_ID</b></label>
+        <input type="text" name="faculty_id" required>
+    </br>
+        <button type="submit" class="btn"style="color:green">Check</button>
+        <button type="button" class="btn cancel" onclick="closeForm()" style="color: red;">Close</button>
+</div>
+      </form>
+
+    
+    <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+    
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    </script>
+    
+  </div>
+
+</body>
+</html>
